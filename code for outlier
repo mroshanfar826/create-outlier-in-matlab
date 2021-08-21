@@ -1,0 +1,12 @@
+clc
+clear all
+data_1 = readtable('The path where the data is saved on the computer','PreserveVariableNames',true);
+boxplot(data_1.feature name);
+Q1=prctile(data_1.feature namee,25);    %%% The first quarter
+Q2=prctile(data_1.feature name,50);     %%%median
+Q3=prctile(data_1.feature name,75);     %%% The second quarter
+IQR=(Q3-Q1);
+upper_bound = (Q1+Q3) + 1.5*Q3 ;
+lower_bound = (Q1+Q3) - 1.5*Q1 ;
+y = data_1.feature namee > upper_bound ;
+q = data_1(y, :)
